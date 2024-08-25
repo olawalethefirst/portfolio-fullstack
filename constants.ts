@@ -5,4 +5,4 @@ export const colorScheme = {
   secondary: "#CC8B65",
   primaryAccent: "#E3DCD2",
   secondaryAccent: "#100C0D",
-};
+} as const;
