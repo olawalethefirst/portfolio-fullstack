@@ -2,21 +2,6 @@ import React, { PropsWithChildren } from "react";
 import { useTheme } from "next-themes";
 import { colorScheme } from "../../constants";
 
-const buttonScheme = {
-  primary: {
-    background: colorScheme.primary,
-    font: colorScheme.primaryAccent,
-    border: colorScheme.primaryAccent,
-    hoverBackground: colorScheme.secondaryAccent,
-  },
-  secondary: {
-    background: colorScheme.secondary,
-    font: colorScheme.secondaryAccent,
-    border: colorScheme.secondaryAccent,
-    hoverBackground: colorScheme.primaryAccent,
-  },
-} as const;
-
 const Button = ({
   children,
   type = "primary",
@@ -54,8 +39,8 @@ const Button = ({
         }
         ${`${
           type === "primary"
-            ? "hover:bg-secondaryAccent active:bg-secondaryAccent"
-            : "hover:bg-primaryAccent active:bg-primaryAccent"
+            ? "tex-secondaryAccent hover:bg-primaryAccent active:bg-secondaryAccent"
+            : "text-primaryAccent hover:bg-secondaryAccent active:bg-primaryAccent"
         }`}
         ${classes}`}
     >

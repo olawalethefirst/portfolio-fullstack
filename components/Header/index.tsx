@@ -1,4 +1,3 @@
-import { Popover } from "@headlessui/react"; //to remove package
 import { useTheme } from "next-themes";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
@@ -6,6 +5,7 @@ import Button from "../Button";
 // Local Data
 import data from "../../data/portfolio.json";
 import Icon from "../Icon/index";
+import { MobileHeader } from "./components/MobileHeader";
 
 const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
   const router = useRouter();
@@ -20,32 +20,7 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
 
   return (
     <>
-      <div
-        style={{
-          position: "fixed",
-          left: "0",
-          right: "0",
-          background: "#CC8B65",
-          padding: "6px",
-          top: "0",
-          border: "2px solid #100C0D",
-          zIndex: "10000",
-          maxWidth: "1480px",
-          // color: "#100C0D",
-        }}
-        className="tablet:hidden"
-      >
-        <div className="flex items-center justify-between p-2 laptop:p-0">
-          <h1
-            onClick={() => router.push("/")}
-            className="font-medium p-2 laptop:p-0 link"
-          >
-            {name}.
-          </h1>
-
-          <Icon name="hamburger" />
-        </div>
-      </div>
+      <MobileHeader />
 
       <div
         className={`mt-10 hidden flex-row items-center justify-between sticky ${
