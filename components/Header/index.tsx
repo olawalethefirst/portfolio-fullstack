@@ -14,13 +14,9 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
 
   const { name, showBlog, showResume } = data;
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
   return (
     <>
-      <MobileHeader />
+      <MobileHeader options={["Work", "About", "Blog", "Resume", "Contact"]}/>
 
       <div
         className={`mt-10 hidden flex-row items-center justify-between sticky ${

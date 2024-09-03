@@ -3,7 +3,7 @@ import { IconSVGProps } from "../type";
 
 export default function hamburger({
   color = "#100C0D",
-  size = 32,
+  size = 30,
   ...otherProps
 }: IconSVGProps) {
   return (
