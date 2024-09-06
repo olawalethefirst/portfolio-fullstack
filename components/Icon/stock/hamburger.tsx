@@ -1,7 +1,7 @@
 import React from "react";
 import { IconSVGProps } from "../type";
 
-export default function hamburger({
+export default function SVG({
   color = "#100C0D",
   size = 30,
   ...otherProps
