@@ -3,7 +3,7 @@ import { IconSVGProps } from "../type";
 
 export default function SVGG({
   color = "#100C0D",
-  size = 300,
+  size = 360,
   ...otherProps
 }: IconSVGProps) {
   return (

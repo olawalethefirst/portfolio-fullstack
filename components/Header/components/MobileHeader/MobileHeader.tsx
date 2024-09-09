@@ -27,12 +27,7 @@ export default function MobileHeader({
 
   return (
     <>
-      <motion.div
-        style={{
-          height: showMenu ? "100vh" : "68px",
-        }}
-        className="tablet:hidden fixed left-0 right-0 top-0 z-50 flex flex-col overscroll-contain"
-      >
+      <motion.div className="tablet:hidden fixed left-0 right-0 top-0 z-50 flex flex-col overscroll-contain">
         <div className="bg-secondary border-solid border-2 border-secondaryAccent p-1 z-50">
           <div className="flex items-center justify-between p-2 laptop:p-0">
             <h1
@@ -83,7 +78,8 @@ export default function MobileHeader({
               animate={{ y: 0 }}
               exit={{ y: "-110%" }}
               key="menu-items"
-              className={`flex-1 flex-col flex overflow-y-scroll bg-primary p-2`}
+              transition={{duration: 0.25}}
+              className={`fixed top-[68px] bottom-0 left-0 right-0 flex-1 flex-col flex overflow-y-scroll bg-primary p-2`}
             >
               <div className="flex flex-col px-8 py-2 my-auto">
                 {options.map((option, index) => (

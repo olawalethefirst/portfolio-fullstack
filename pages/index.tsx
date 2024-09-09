@@ -51,7 +51,7 @@ export default function Home() {
 
   return (
     <div
-      className={`page-wrapper-small tablet:page-wrapper bg-black bg-image relative ${
+      className={`page-wrapper-small pt-[56px] tablet:page-wrapper bg-black bg-image relative ${
         data.showCursor && "cursor-none"
       }`}
     >
