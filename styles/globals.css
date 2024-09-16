@@ -19,7 +19,7 @@ body {
 
 @layer components {
   .container {
-    padding: 16px;
+    padding: 12px;
     max-width: 1440px;
   }
 

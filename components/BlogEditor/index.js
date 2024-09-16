@@ -43,6 +43,7 @@ const BlogEditor = ({ post, close, refresh }) => {
 
   return (
     <div
+    // todo: confirm if h-screen is dynamic with height of browser taskbar
       className={`fixed z-10 w-screen h-screen overflow-auto top-0 flex flex-col items-center ${
         theme === "dark" ? "bg-black" : "bg-white"
       }`}

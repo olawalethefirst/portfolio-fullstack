@@ -274,7 +274,7 @@ const Edit = () => {
                 </Button>
                 <Button
                   onClick={() => setData({ ...data, showBlog: false })}
-                  classes={
+                  className={
                     !data.showBlog && "bg-red-500 text-white hover:bg-red-600"
                   }
                 >
@@ -293,7 +293,7 @@ const Edit = () => {
                 </Button>
                 <Button
                   onClick={() => setData({ ...data, darkMode: false })}
-                  classes={
+                  className={
                     !data.darkMode && "bg-red-500 text-white hover:bg-red-600"
                   }
                 >
@@ -312,7 +312,7 @@ const Edit = () => {
                 </Button>
                 <Button
                   onClick={() => setData({ ...data, showResume: false })}
-                  classes={
+                  className={
                     !data.showResume && "bg-red-500 text-white hover:bg-red-600"
                   }
                 >
@@ -331,7 +331,7 @@ const Edit = () => {
                 </Button>
                 <Button
                   onClick={() => setData({ ...data, showCursor: false })}
-                  classes={
+                  className={
                     !data.showCursor && "bg-red-500 text-white hover:bg-red-600"
                   }
                 >
@@ -768,7 +768,7 @@ const Edit = () => {
                   ))}
                   <Button
                     type="primary"
-                    classes="hover:scale-100"
+                    className="hover:scale-100"
                     onClick={() =>
                       setData({
                         ...data,
@@ -835,7 +835,7 @@ const Edit = () => {
                       })
                     }
                     type="primary"
-                    classes="hover:scale-100"
+                    className="hover:scale-100"
                   >
                     Add +
                   </Button>
@@ -893,7 +893,7 @@ const Edit = () => {
                       })
                     }
                     type="primary"
-                    classes="hover:scale-100"
+                    className="hover:scale-100"
                   >
                     Add +
                   </Button>

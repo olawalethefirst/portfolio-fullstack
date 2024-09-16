@@ -16,44 +16,36 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
 
   return (
     <>
-      <MobileHeader options={["Work", "About", "Blog", "Resume", "Contact"]}/>
+      <MobileHeader options={["Work", "About", "Blog", "Resume", "Contact"]} />
 
       <div
-        className={`mt-10 hidden flex-row items-center justify-between sticky ${
-          theme === "light" && "bg-white"
-        } dark:text-white top-0 z-10 tablet:flex`}
+        className={`mt-10 hidden flex-row items-center justify-between sticky bg-primaryAccent dark:text-white top-0 z-10 tablet:flex`}
         style={{
           position: "fixed",
-          left: "20px",
-          right: "20px",
-          background: "#CC8B65",
+          left: "8px",
+          right: "8px",
           borderRadius: "32px",
           padding: "6px",
           top: "8px",
-          border: `2px solid ${"#100C0D"}`,
           zIndex: "10000",
           maxWidth: "1480px",
           margin: "auto",
-          // color: "#100C0D",
         }}
       >
-        <h1
-          onClick={() => router.push("/")}
-          className="font-medium cursor-pointer mob:p-2 laptop:p-0"
-        >
-          {name}.
+        <h1 onClick={() => router.push("/")} className="text-secondaryAccent font-semibold ">
+          {"Olawale"}
         </h1>
 
         <div className="flex">
           <Button
-            classes="laptop:my-1 p-1 laptop:p-1"
+            className="laptop:my-1 p-1 laptop:p-1"
             onClick={handleWorkScroll}
             type="secondary"
           >
             Work
           </Button>
           <Button
-            classes="laptop:my-1 p-1 laptop:p-1"
+            className="laptop:my-1 p-1 laptop:p-1"
             onClick={handleAboutScroll}
             type="secondary"
           >
@@ -61,7 +53,7 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
           </Button>
           {showBlog && (
             <Button
-              classes="laptop:my-1 p-1 laptop:p-1"
+              className="laptop:my-1 p-1 laptop:p-1"
               onClick={() => router.push("/blog")}
               type="secondary"
             >
@@ -71,7 +63,7 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
           {showResume && (
             <Button
               onClick={() => router.push("/resume")}
-              classes="laptop:my-1 p-1 laptop:p-1"
+              className="laptop:my-1 p-1 laptop:p-1"
               type="secondary"
             >
               Resume
@@ -79,7 +71,7 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
           )}
 
           <Button
-            classes="laptop:my-1 p-1 laptop:p-1"
+            className="laptop:my-1 p-1 laptop:p-1"
             onClick={() => window.open("mailto:hello@chetanverma.com")}
             type="secondary"
           >

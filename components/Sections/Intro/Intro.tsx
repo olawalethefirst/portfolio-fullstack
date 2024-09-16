@@ -13,15 +13,15 @@ import Icon from "../../Icon";
 export default function Intro() {
   const { scrollY } = useScroll();
 
-  const transformedScrollY = useTransform(scrollY, [0, 200], [0, 50], {
+  const transformedScrollY = useTransform(scrollY, [0, 200], [0, 20], {
     clamp: true,
   });
-  const negTransformedScrollY = useTransform(scrollY, [0, 200], [0, -40], {
+  const negTransformedScrollY = useTransform(scrollY, [0, 200], [0, -20], {
     clamp: true,
   });
 
   return (
-    <Row className="h-screen min-h-[450px] max-h-[450px] tablet:max-h-[800px] tablet:items-center">
+    <Row className="h-[100svh] min-h-[450px] max-h-[800px] tablet:items-center">
       <Col className="flex flex-col justify-center">
         <div>
           <div className="mt-5">
