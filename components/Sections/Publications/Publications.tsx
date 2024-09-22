@@ -1,5 +1,5 @@
-import SectionHead from "../SectionHead/SectionHead";
-import ServiceCard from "../PublicationCard/PublicationCard";
+import SectionHead from "@/components/atoms/SectionHead/SectionHead";
+import ServiceCard from "@/components/PublicationCard/PublicationCard";
 
 export default function Publications({ publications }) {
   return (

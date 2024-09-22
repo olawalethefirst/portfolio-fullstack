@@ -1,10 +1,10 @@
 import { useTheme } from "next-themes";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
-import Button from "../../../Button";
-import Icon from "../../../Icon";
+import Button from "@/components/atoms/Button";
+import Icon from "@/components/atoms/Icon";
 import { AnimatePresence, motion } from "framer-motion";
-import { NavigationOption } from "../../../../types";
+import { NavigationOption } from "@/types";
 import Image from "next/image";
 import logo from "public/images/logo.svg";
 
@@ -34,7 +34,7 @@ export default function MobileHeader({
           <div className="flex items-center justify-between p-2 laptop:p-0">
             <h1
               onClick={() => router.push("/")}
-              className="text-secondaryAccent font-semibold "
+              className="text-primary font-semibold "
             >
               {"Olawale"}
             </h1>
@@ -81,7 +81,7 @@ export default function MobileHeader({
               exit={{ y: "-110%" }}
               key="menu-items"
               transition={{ duration: 0.25 }}
-              className={`fixed top-[68px] bottom-0 left-0 right-0 flex-1 flex-col flex overflow-y-scroll bg-primary p-2`}
+              className={`fixed top-[66px] bottom-0 left-0 right-0 flex-1 flex-col flex overflow-y-scroll bg-primary p-2`}
             >
               <div className="flex flex-col px-8 py-2 my-auto">
                 {options.map((option, index) => (

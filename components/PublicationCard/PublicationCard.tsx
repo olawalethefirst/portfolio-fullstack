@@ -1,5 +1,5 @@
 import { motion, useAnimation } from "framer-motion";
-import Icon from "@/components/Icon";
+import Icon from "@/components/atoms/Icon";
 import { useCallback } from "react";
 
 export interface PublicationCardProps {
@@ -26,13 +26,16 @@ export default function PublicationCard({
 
   return (
     <motion.div
+    animate={{scale:1}}
+      whileHover={{ scale: 1.02 }}
+      whileTap={{ scale: 1.02 }}
       onTapStart={showBanner}
       onHoverStart={showBanner}
       onTap={hideBanner}
       onHoverEnd={hideBanner}
       className={`relative w-full p-2 mob:p-4 rounded-lg transition-all ease-out duration-300 cursor-pointer`}
     >
-      <h1 className="text-xl">{name ? name : "Heading"}</h1>
+      <h1 className="text-xl font-medium">{name ? name : "Heading"}</h1>
       <p className="mt-5 text-lg">
         {description
           ? description
@@ -40,13 +43,13 @@ export default function PublicationCard({
       </p>
 
       <motion.div
-        className="absolute top-0 bottom-0 left-0 right-0 bg-secondary/[0.85] flex justify-center items-center"
+        className="absolute top-0 bottom-0 left-0 right-0 bg-primaryAccent/[0.9] flex justify-center items-center"
         animate={bannerControl}
         initial={{
           opacity: 0,
         }}
       >
-        <Icon name="external-link" color="black"/>
+        <Icon name="external-link" color="#013328" />
       </motion.div>
     </motion.div>
   );

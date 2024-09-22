@@ -1,13 +1,12 @@
 import { useTheme } from "next-themes";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
-import Button from "../Button";
+import Button from "@/components/atoms/Button";
 // Local Data
-import data from "../../data/portfolio.json";
-import Icon from "../Icon/index";
+import data from "@/data/portfolio.json";
 import { MobileHeader } from "./components/MobileHeader";
 
-const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
+const Header = () => {
   const router = useRouter();
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
@@ -19,34 +18,31 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
       <MobileHeader options={["Work", "About", "Blog", "Resume", "Contact"]} />
 
       <div
-        className={`mt-10 hidden flex-row items-center justify-between sticky bg-primaryAccent dark:text-white top-0 z-10 tablet:flex`}
-        style={{
-          position: "fixed",
-          left: "8px",
-          right: "8px",
-          borderRadius: "32px",
-          padding: "6px",
-          top: "8px",
-          zIndex: "10000",
-          maxWidth: "1480px",
-          margin: "auto",
-        }}
+        className={`
+          hidden tablet:flex
+          sticky top-[10px] z-[99]
+          flex-row items-center justify-between  
+          bg-primaryAccent rounded-[32px] p-1.5 mx-[-10px]
+        `}
       >
-        <h1 onClick={() => router.push("/")} className="text-secondaryAccent font-semibold ">
+        <h1
+          onClick={() => router.push("/")}
+          className="text-primary font-semibold "
+        >
           {"Olawale"}
         </h1>
 
         <div className="flex">
           <Button
             className="laptop:my-1 p-1 laptop:p-1"
-            onClick={handleWorkScroll}
+            onClick={() => {}}
             type="secondary"
           >
             Work
           </Button>
           <Button
             className="laptop:my-1 p-1 laptop:p-1"
-            onClick={handleAboutScroll}
+            onClick={() => {}}
             type="secondary"
           >
             About

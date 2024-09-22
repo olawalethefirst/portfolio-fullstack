@@ -1,8 +1,21 @@
 import { forwardRef } from "react";
-import ProjectCard from "../ProjectCard";
-import SectionHead from "../SectionHead/SectionHead";
+import ProjectCard from "@/components/ProjectCard";
+import SectionHead from "@/components/atoms/SectionHead/SectionHead";
+import Section from "@/components/atoms/Section/Section";
 
-export default forwardRef<HTMLDivElement>(function Projects({ projects }, ref) {
+interface ProjectsProps {
+  projects: {
+    id: string;
+    imageSrc: string;
+    title: string;
+    description: string;
+    url: string;
+  }[];
+}
+export default forwardRef<HTMLDivElement, ProjectsProps>(function Projects(
+  { projects },
+  ref
+) {
   return (
     <div className="mt-10 laptop:mt-30 p-2 laptop:p-0" ref={ref}>
       <SectionHead title="Projects" />

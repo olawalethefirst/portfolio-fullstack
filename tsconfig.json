@@ -23,7 +23,8 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "components/Icon/stock/animating-screen-screen2"
-, "next.config.js"  ],
+    "components/atoms/Icon/stock/animating-screen-screen2",
+    "next.config.js"
+, "tailwind.config.mjs", "pages/_app.tsx"  ],
   "exclude": ["node_modules"]
 }

@@ -1,11 +1,7 @@
 import React from "react";
 import { IconSVGProps } from "../type";
 
-export default function SVG({
-  color = "#100C0D",
-  size = 30,
-  ...otherProps
-}: IconSVGProps) {
+export default function SVG({ color = "#17301b", size = 30, ...otherProps }: IconSVGProps) {
   return (
     <svg
       height={size}

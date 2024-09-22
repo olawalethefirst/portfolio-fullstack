@@ -1,9 +1,12 @@
 import React from "react";
-import Button from "../Button";
+import Button from "@/components/atoms/Button";
 
-import yourData from "../../data/portfolio.json";
+import yourData from "@/data/portfolio.json";
 
-const Socials = ({ className }) => {
+export interface SocialsProps {
+  className?: string;
+}
+const Socials = ({ className }: SocialsProps) => {
   return (
     <div className={`${className} flex flex-wrap mob:flex-nowrap link`}>
       {yourData.socials.map((social, index) => (

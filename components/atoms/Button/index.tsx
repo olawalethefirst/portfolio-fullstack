@@ -1,6 +1,6 @@
 import React, { PropsWithChildren } from "react";
 import { useTheme } from "next-themes";
-import { colorScheme } from "../../constants";
+
 
 const Button = ({
   children,
@@ -40,7 +40,7 @@ const Button = ({
         ${`${
           type === "primary"
             ? "text-primaryAccent hover:bg-secondary active:bg-secondary"
-            : "text-secondaryAccent hover:bg-secondary active:bg-secondary"
+            : "text-primary hover:bg-secondary active:bg-secondary"
         }`}
         ${className}`}
     >

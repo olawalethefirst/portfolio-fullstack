@@ -1,6 +1,7 @@
 import React from "react";
-import ProjectImagesCarousel from "../ProjectImagesCarousel/ProjectImagesCarousel";
+import ProjectImagesCarousel from "@/components/ProjectImagesCarousel/ProjectImagesCarousel";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const ProjectCard = ({ img, name, description, onClick }) => {
   return (
@@ -24,12 +25,21 @@ const ProjectCard = ({ img, name, description, onClick }) => {
             "https://i.imgur.com/Denyq12.png",
             "https://i.imgur.com/REltMJr.png",
           ].map((item) => (
-            <div
+            <motion.div
               key={item}
               className="relative w-[35px] h-[35px] laptop:w-[45px] laptop:h-[45px] "
+              animate={{
+                scale: 1,
+              }}
+              whileHover={{
+                scale: 1.1,
+              }}
+              whileTap={{
+                scale: 1.1,
+              }}
             >
               <Image alt="framework logo" src={item} layout="fill" />
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

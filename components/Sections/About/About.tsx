@@ -1,5 +1,5 @@
 import React from "react";
-import SectionHead from "../SectionHead/SectionHead";
+import SectionHead from "@/components/atoms/SectionHead/SectionHead";
 
 export default function About({ data }) {
   return (
