@@ -22,7 +22,7 @@ const Header = () => {
           hidden tablet:flex
           sticky top-[10px] z-[99]
           flex-row items-center justify-between  
-          bg-primaryAccent rounded-[32px] p-1.5 mx-[-10px]
+          bg-primaryAccent rounded-[32px] p-1.5 mx-[-8px]
         `}
       >
         <h1

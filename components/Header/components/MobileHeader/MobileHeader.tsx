@@ -30,7 +30,7 @@ export default function MobileHeader({
   return (
     <>
       <motion.div className="tablet:hidden fixed left-0 right-0 top-0 z-50 flex flex-col overscroll-contain">
-        <div className="bg-primaryAccent border-solid border-2 border-secondaryAccent p-1 z-50">
+        <div className="bg-primaryAccent  p-1 z-50">
           <div className="flex items-center justify-between p-2 laptop:p-0">
             <h1
               onClick={() => router.push("/")}
