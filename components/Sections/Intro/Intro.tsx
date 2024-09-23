@@ -30,7 +30,7 @@ export default function Intro() {
           animate={{ scale: 0.95 }}
           whileInView={{
             scale: 1,
-            transition: { type: "spring", duration: 1.5 },
+            transition: { type: "spring", duration: 3 },
           }}
           exit={{ scale: 0.95 }}
         >
