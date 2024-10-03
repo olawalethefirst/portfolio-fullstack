@@ -15,9 +15,11 @@ module.exports = {
     extend: {
       colors: {
         primary: "#17301B",
-        secondary: "#CC8B65",
-        primaryAccent: "#E5FDAE",
+        secondary: "#E5FDAE",
+        primaryAccent: "#D9E7CB",
         secondaryAccent: "#100C0D",
+        primaryCompliment: "#302817",
+        secondaryCompliment: "#FFFFFF",
       },
     },
   },

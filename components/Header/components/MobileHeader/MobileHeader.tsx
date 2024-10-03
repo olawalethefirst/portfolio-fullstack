@@ -30,14 +30,9 @@ export default function MobileHeader({
   return (
     <>
       <motion.div className="tablet:hidden fixed left-0 right-0 top-0 z-50 flex flex-col overscroll-contain">
-        <div className="bg-primaryAccent  p-1 z-50">
+        <div className="bg-secondary   z-50">
           <div className="flex items-center justify-between p-2 laptop:p-0">
-            <h1
-              onClick={() => router.push("/")}
-              className="text-primary font-semibold "
-            >
-              {"Olawale"}
-            </h1>
+            <Icon name="logo" size={24} />
 
             <Button
               className="bg-transparent hover:bg-transparent active:bg-transparent overflow-hidden"
@@ -81,7 +76,7 @@ export default function MobileHeader({
               exit={{ y: "-110%" }}
               key="menu-items"
               transition={{ duration: 0.25 }}
-              className={`fixed top-[62px] bottom-0 left-0 right-0 flex-1 flex-col flex overflow-y-scroll bg-primary p-2`}
+              className={`fixed top-[54px] bottom-0 left-0 right-0 flex-1 flex-col flex overflow-y-scroll bg-primary p-2`}
             >
               <div className="flex flex-col px-8 py-2 my-auto">
                 {options.map((option, index) => (
@@ -89,12 +84,12 @@ export default function MobileHeader({
                     key={option}
                     className={`flex justify-center py-4 ${
                       index !== options.length - 1
-                        ? "border-b border-secondary"
+                        ? "border-b border-white/[0.4]"
                         : ""
                     }`}
                   >
                     <Button
-                      className="text-[20px] px-6 py-3"
+                      className="text-[20px] px-6 py-3 text-white"
                       onClick={() => {}}
                       type="primary"
                     >

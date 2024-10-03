@@ -4,7 +4,7 @@ import { IconSVGProps } from "./type";
 const createIcon = (iconPathName: string) =>
   lazy(() => import(`./stock/${iconPathName}`));
 
-export default function IconWrapper({
+export default function Icon({
   name,
   ...other
 }: { name: string } & IconSVGProps) {

@@ -28,19 +28,10 @@ const Button = ({
         py-1 tablet:py-1.5 laptop:py-2 px-2 tablet:px-3 laptop:px-4
         rounded-3xl
         transition-all ease-out duration-300 
-        ${
-          outlined
-            ? `bg-${type} border ${
-                type === "primary"
-                  ? "border-primaryAccent"
-                  : "border-secondaryAccent"
-              }`
-            : ""
-        }
         ${`${
           type === "primary"
-            ? "text-primaryAccent hover:bg-secondary active:bg-secondary"
-            : "text-primary hover:bg-secondary active:bg-secondary"
+            ? "text-secondary hover:bg-primaryCompliment active:bg-primaryCompliment"
+            : "text-primary hover:bg-secondaryCompliment active:secondaryCompliment"
         }`}
         ${className}`}
     >

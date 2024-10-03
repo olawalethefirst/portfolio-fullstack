@@ -43,13 +43,13 @@ export default function PublicationCard({
       </p>
 
       <motion.div
-        className="absolute top-0 bottom-0 left-0 right-0 bg-primaryAccent/[0.9] flex justify-center items-center"
+        className="absolute top-0 bottom-0 left-0 right-0 bg-primary/[0.8] flex justify-center items-center"
         animate={bannerControl}
         initial={{
           opacity: 0,
         }}
       >
-        <Icon name="external-link" color="#013328" />
+        <Icon name="external-link" color="white" />
       </motion.div>
     </motion.div>
   );

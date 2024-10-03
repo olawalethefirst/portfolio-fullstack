@@ -5,6 +5,8 @@ import Button from "@/components/atoms/Button";
 // Local Data
 import data from "@/data/portfolio.json";
 import { MobileHeader } from "./components/MobileHeader";
+import Icon from "@/components/atoms/Icon";
+
 
 const Header = () => {
   const router = useRouter();
@@ -22,15 +24,11 @@ const Header = () => {
           hidden tablet:flex
           sticky top-[10px] z-[99]
           flex-row items-center justify-between  
-          bg-primaryAccent rounded-[32px] p-1.5 mx-[-8px]
+          bg-secondary rounded-[32px] p-1.5 mx-[-8px]
         `}
       >
-        <h1
-          onClick={() => router.push("/")}
-          className="text-primary font-semibold "
-        >
-          {"Olawale"}
-        </h1>
+        <Icon name="logo" size={24} />
+        
 
         <div className="flex">
           <Button

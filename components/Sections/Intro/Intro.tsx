@@ -58,8 +58,8 @@ export default function Intro() {
         </motion.div>
       </Col>
 
-      <Col className="flex justify-end hidden tablet:flex">
-        <div className="h-[375px] w-[360px] relative">
+      <Col className="flex justify-center hidden tablet:flex">
+        <div className="h-[375px] w-[360px] desktop:scale-[1.2] relative">
           <Icon
             name="animating-screen-main"
             className="absolute z-50 top-0 left-0"
