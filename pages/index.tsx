@@ -27,12 +27,10 @@ export default function Home() {
       <div className="container mx-auto">
         <Header />
         
-        <Spacer size={100} />
-
+        
         <Intro />
 
-        <Spacer size={160} />
-
+        
         <Section>
           <Projects projects={data?.projects} />
         </Section>

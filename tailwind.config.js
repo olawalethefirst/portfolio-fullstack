@@ -7,10 +7,20 @@ module.exports = {
   theme: {
     screens: {
       mob: "375px",
+      mobl: "420px",
       tablet: "768px",
       laptop: "1024px",
       desktop: "1280px",
       laptopl: "1440px",
+    },
+    container: {
+      padding: {
+        DEFAULT: '1.5rem',
+        tablet: '2.5rem',
+        laptop: '4rem',
+        desktop: '5rem',
+        laptopl: '6rem',
+      },
     },
     extend: {
       colors: {

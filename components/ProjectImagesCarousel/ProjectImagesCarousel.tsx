@@ -25,7 +25,7 @@ export default function ProjectImagesCarousel({
                 <CardContent className="flex aspect-square relative items-center justify-center p-6">
                   <Image
                     alt={"project image"}
-                    src={imageUrl}
+                    src={"https://i.imgur.com/pZ9jed6.png"}
                     layout="fill"
                     className="object-cover scale-95 hover:scale-100 active:scale-95 cursor-pointer transition-all ease-out duration-300"
                   />

@@ -26,17 +26,17 @@ export default function PublicationCard({
 
   return (
     <motion.div
-    animate={{scale:1}}
+      animate={{ scale: 1 }}
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 1.02 }}
       onTapStart={showBanner}
       onHoverStart={showBanner}
       onTap={hideBanner}
       onHoverEnd={hideBanner}
-      className={`relative w-full p-2 mob:p-4 rounded-lg transition-all ease-out duration-300 cursor-pointer`}
+      className={`relative w-full p-2 mob:p-4 rounded-lg transition-all ease-out duration-300 cursor-pointer outline-none`}
     >
       <h1 className="text-xl font-medium">{name ? name : "Heading"}</h1>
-      <p className="mt-5 text-lg">
+      <p className="mt-5 text-lg text-justify">
         {description
           ? description
           : "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. "}

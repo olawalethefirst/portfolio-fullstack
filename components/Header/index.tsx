@@ -24,7 +24,7 @@ const Header = () => {
           hidden tablet:flex
           sticky top-[10px] z-[99]
           flex-row items-center justify-between  
-          bg-secondary rounded-[32px] p-1.5 mx-[-8px]
+          bg-secondary rounded-[32px] p-1.5 mx-[-16px]
         `}
       >
         <Icon name="logo" size={24} />

@@ -28,7 +28,7 @@ export default function MobileHeader({
   }, [onToggleMenu, showMenu]);
 
   return (
-    <>
+    <div className="h-[54px]">
       <motion.div className="tablet:hidden fixed left-0 right-0 top-0 z-50 flex flex-col overscroll-contain">
         <div className="bg-secondary   z-50">
           <div className="flex items-center justify-between p-2 laptop:p-0">
@@ -102,6 +102,6 @@ export default function MobileHeader({
           )}
         </AnimatePresence>
       </motion.div>
-    </>
+    </div>
   );
 }
