@@ -1,18 +1,19 @@
 import SectionHead from "@/components/atoms/SectionHead/SectionHead";
-import ServiceCard from "@/components/PublicationCard/PublicationCard";
+import PublicationCard, {
+  PublicationCardProps,
+} from "@/components/PublicationCard/PublicationCard";
 
-export default function Publications({ publications }) {
+interface PublicationProps {
+  publications: PublicationCardProps[];
+}
+export default function Publications({ publications }: PublicationProps) {
   return (
     <div className="laptop:mt-30 p-2 laptop:p-0">
-      <SectionHead title="Publications" />
+      <SectionHead title="Creative Endeavors" />
 
       <div className="mt-5 tablet:ml-10 grid grid-cols-1 laptop:grid-cols-2 gap-6">
-        {publications.map((service, index) => (
-          <ServiceCard
-            key={index}
-            name={service.title}
-            description={service.description}
-          />
+        {publications.map((publication, index) => (
+          <PublicationCard key={String(index)} {...publication} />
         ))}
       </div>
     </div>

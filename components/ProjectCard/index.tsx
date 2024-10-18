@@ -3,30 +3,39 @@ import ProjectImagesCarousel from "@/components/ProjectImagesCarousel/ProjectIma
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-const ProjectCard = ({ img, name, description, onClick }) => {
+export interface Tag {
+    imageUrl: string;
+    url: string;
+}
+export interface ProjectCardProps {
+  images: string[];
+  title: string;
+  description: string;
+  tags: Tag[];
+}
+const ProjectCard = ({
+  images,
+  title,
+  description,
+  tags,
+}: ProjectCardProps) => {
   return (
     <div className="p-2 laptop:p-4 border">
       <div className="relative rounded-lg transition-all ease-out duration-300 h-48 mob:h-auto">
-        <ProjectImagesCarousel imagesUrl={new Array(5).fill(img)} />
+        <ProjectImagesCarousel imagesUrl={images} />
       </div>
 
       <div className="text-center px-2 py-5 flex flex-col gap-1 laptop:gap-2">
-        <h3 className="text-xl laptop:text-3xl font-medium">
-          {name ? name : "Project Name"}
-        </h3>
+        <h3 className="text-xl laptop:text-3xl font-medium">{title}</h3>
 
         <p className="text-base laptop:text-xl opacity-50">
           {description ? description : "Description"}
         </p>
 
-        <div className="flex justify-center gap-4 mt-4 ">
-          {[
-            "https://i.imgur.com/Tfrsr4t.png",
-            "https://i.imgur.com/Denyq12.png",
-            "https://i.imgur.com/REltMJr.png",
-          ].map((item) => (
+        <div className="flex justify-center gap-4 mt-4 cursor-pointer">
+          {tags.map((tag) => (
             <motion.div
-              key={item}
+              key={tag.imageUrl}
               className="relative w-[35px] h-[35px] laptop:w-[45px] laptop:h-[45px] "
               animate={{
                 scale: 1,
@@ -38,7 +47,7 @@ const ProjectCard = ({ img, name, description, onClick }) => {
                 scale: 1.1,
               }}
             >
-              <Image alt="framework logo" src={item} layout="fill" />
+              <Image alt="framework logo" src={tag.imageUrl} layout="fill" />
             </motion.div>
           ))}
         </div>

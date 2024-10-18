@@ -1,20 +1,9 @@
-import { useTheme } from "next-themes";
 import { useRouter } from "next/router";
-import React, { useEffect, useState } from "react";
 import Button from "@/components/atoms/Button";
-// Local Data
-import data from "@/data/portfolio.json";
 import { MobileHeader } from "./components/MobileHeader";
 import Icon from "@/components/atoms/Icon";
 
-
 const Header = () => {
-  const router = useRouter();
-  const { theme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  const { name, showBlog, showResume } = data;
-
   return (
     <>
       <MobileHeader options={["Work", "About", "Blog", "Resume", "Contact"]} />
@@ -28,7 +17,6 @@ const Header = () => {
         `}
       >
         <Icon name="logo" size={24} />
-        
 
         <div className="flex">
           <Button
@@ -45,24 +33,14 @@ const Header = () => {
           >
             About
           </Button>
-          {showBlog && (
-            <Button
-              className="laptop:my-1 p-1 laptop:p-1"
-              onClick={() => router.push("/blog")}
-              type="secondary"
-            >
-              Blog
-            </Button>
-          )}
-          {showResume && (
-            <Button
-              onClick={() => router.push("/resume")}
-              className="laptop:my-1 p-1 laptop:p-1"
-              type="secondary"
-            >
-              Resume
-            </Button>
-          )}
+
+          <Button
+            onClick={() => {}}
+            className="laptop:my-1 p-1 laptop:p-1"
+            type="secondary"
+          >
+            Resume
+          </Button>
 
           <Button
             className="laptop:my-1 p-1 laptop:p-1"

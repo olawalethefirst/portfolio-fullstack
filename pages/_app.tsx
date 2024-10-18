@@ -1,15 +1,17 @@
 import "../styles/globals.css";
-import { ThemeProvider } from "next-themes";
+import Head from "next/head";
 
 const App = ({ Component, pageProps }) => {
   return (
-    <ThemeProvider>
-      <div className="fixed top-0 bottom-0 left-0 right-0 bg-[black] z-[1] opacity-[0.2]"/>
+    <>
+      <Head>
+        <title>{"Olawale"}</title>
+      </Head>
 
       <div className="relative z-[99999998]">
         <Component {...pageProps} />
       </div>
-    </ThemeProvider>
+    </>
   );
 };
 

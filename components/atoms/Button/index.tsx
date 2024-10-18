@@ -1,5 +1,4 @@
 import React, { PropsWithChildren } from "react";
-import { useTheme } from "next-themes";
 
 
 const Button = ({
@@ -14,8 +13,6 @@ const Button = ({
   className?: string;
   outlined?: boolean;
 }>) => {
-  const { theme } = useTheme();
-
   return (
     <button
       onClick={onClick}

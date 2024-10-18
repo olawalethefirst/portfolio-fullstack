@@ -1,12 +1,9 @@
-import { useTheme } from "next-themes";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import Button from "@/components/atoms/Button";
 import Icon from "@/components/atoms/Icon";
 import { AnimatePresence, motion } from "framer-motion";
 import { NavigationOption } from "@/types";
-import Image from "next/image";
-import logo from "public/images/logo.svg";
 
 interface MobileHeaderProps {
   options: NavigationOption[];
@@ -18,7 +15,6 @@ export default function MobileHeader({
 }: MobileHeaderProps) {
   // Todo: move navigator logic to global utility helper fns
   const router = useRouter();
-  const { theme, setTheme } = useTheme();
   const [showMenu, setShowMenu] = useState(false);
 
   const name = "Olawale";

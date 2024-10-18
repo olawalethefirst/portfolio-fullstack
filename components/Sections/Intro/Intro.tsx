@@ -1,12 +1,16 @@
-import React from "react";
+import {Fragment} from "react";
 import Socials from "@/components/Socials";
-import data from "../../../data/portfolio.json";
 import { Row, Col } from "@/components/atoms/Layout/index";
 import { motion, useScroll, useTransform, easeOut } from "framer-motion";
 import Icon from "@/components/atoms/Icon";
 import Spacer from "@/components/atoms/Layout/Spacer/Spacer";
 
-export default function Intro() {
+interface IntroProps {
+  title: string;
+  details: string[];
+}
+
+export default function Intro({ title, details }: IntroProps) {
   const { scrollY } = useScroll();
 
   const transformedScrollY = useTransform(scrollY, [0, 800], [0, 30], {
@@ -32,19 +36,16 @@ export default function Intro() {
           >
             <div className="">
               <h1 className="text-3xl mobl:text-4xl laptopl:text-5xl   font-black w-4/5 mob:w-full ">
-                {"Hi, I'm Olawale."}
+                {title}
               </h1>
 
               <Spacer size={16} />
 
               <h2 className="text-[25px] mobl:text-[32px] laptop:text-3xl laptopl:text-4xl  !leading-[1.4] font-medium w-full ">
-                I'm passionate about
-                <br />
-                bringing ideas to life,
-                <br />
-                through innovative web
-                <br />
-                and mobile solutions.
+                {details.map(((line, index) => <Fragment key={line}>
+                  {line}
+                  {index + 1 !== details.length ? <br/> : null}
+                </Fragment>))}
               </h2>
             </div>
 

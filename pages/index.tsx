@@ -1,50 +1,45 @@
-import { useRef } from "react";
 import Header from "@/components/Header/index";
 import Footer from "@/components/Footer";
-import Head from "next/head";
 import Intro from "@/components/Sections/Intro/Intro";
-
-// Local Data
-import data from "@/data/portfolio.json";
-import ProjectCard from "@/components/ProjectImagesCarousel/ProjectImagesCarousel";
 import Projects from "@/components/Sections/Projects/Projects";
 import Spacer from "@/components/atoms/Layout/Spacer/Spacer";
 import Publications from "@/components/Sections/Publications/Publications";
 import About from "@/components/Sections/About/About";
 import Section from "@/components/atoms/Section/Section";
+import { getAppData } from "@/services/firestore";
+import { NextPageContext } from "next";
+import { AppData } from "@/data/appDataBackup";
 
-export default function Home() {
+Page.getInitialProps = async (ctx: NextPageContext) => {
+  const appData = await getAppData();
+
+  return appData;
+};
+
+export default function Page({ hero, projects, publications, about }: AppData) {
   return (
     <div
-      className={`page-wrapper-small !pt-[20px] tablet:page-wrapper bg-black bg-image relative ${
-        data.showCursor && "cursor-none"
-      }`}
+      className={`page-wrapper-small !pt-[20px] tablet:page-wrapper bg-black bg-image relative`}
     >
-      <Head>
-        <title>{data.name}</title>
-      </Head>
-
       <div className="container mx-auto">
         <Header />
-        
-        
-        <Intro />
 
-        
+        <Intro {...hero} />
+
         <Section>
-          <Projects projects={data?.projects} />
+          <Projects projects={projects} />
         </Section>
 
         <Spacer size={160} />
 
         <Section>
-          <Publications publications={data.services} />
+          <Publications publications={publications} />
         </Section>
 
         <Spacer size={160} />
 
         <Section>
-          <About data={data.aboutpara} />
+          <About data={about} />
         </Section>
 
         <Spacer size={160} />

@@ -13,6 +13,7 @@ export default function ProjectImagesCarousel({
 }: {
   imagesUrl: string[];
 }) {
+  console.log({ imagesUrl });
   return (
     <Carousel className="w-full flex gap-4 items-center">
       <CarouselPrevious className="static flex-none" />
@@ -25,9 +26,10 @@ export default function ProjectImagesCarousel({
                 <CardContent className="flex aspect-square relative items-center justify-center p-6">
                   <Image
                     alt={"project image"}
-                    src={"https://i.imgur.com/pZ9jed6.png"}
+                    src={imageUrl}
                     layout="fill"
                     className="object-cover scale-95 hover:scale-100 active:scale-95 cursor-pointer transition-all ease-out duration-300"
+                    priority={false}
                   />
                 </CardContent>
               </Card>
