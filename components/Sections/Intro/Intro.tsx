@@ -4,13 +4,15 @@ import { Row, Col } from "@/components/atoms/Layout/index";
 import { motion, useScroll, useTransform, easeOut } from "framer-motion";
 import Icon from "@/components/atoms/Icon";
 import Spacer from "@/components/atoms/Layout/Spacer/Spacer";
+import { Social } from "@/types";
 
 interface IntroProps {
   title: string;
   details: string[];
+  socials: Social[];
 }
 
-export default function Intro({ title, details }: IntroProps) {
+export default function Intro({ title, details, socials }: IntroProps) {
   const { scrollY } = useScroll();
 
   const transformedScrollY = useTransform(scrollY, [0, 800], [0, 30], {
@@ -42,16 +44,21 @@ export default function Intro({ title, details }: IntroProps) {
               <Spacer size={16} />
 
               <h2 className="text-[25px] mobl:text-[32px] laptop:text-3xl laptopl:text-4xl  !leading-[1.4] font-medium w-full ">
-                {details.map(((line, index) => <Fragment key={line}>
-                  {line}
-                  {index + 1 !== details.length ? <br/> : null}
-                </Fragment>))}
+                {details.map((line, index) => (
+                  <Fragment key={line}>
+                    {line}
+                    {index + 1 !== details.length ? <br /> : null}
+                  </Fragment>
+                ))}
               </h2>
             </div>
 
             <Spacer size={16} />
 
-            <Socials className="mt-2 ml-[-8px] laptop:ml-[-12px] laptop:mt-5" />
+            <Socials
+              socials={socials}
+              className="mt-2 ml-[-8px] laptop:ml-[-12px] laptop:mt-5"
+            />
           </motion.div>
         </Col>
 

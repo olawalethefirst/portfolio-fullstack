@@ -1,9 +1,9 @@
 import { useRouter } from "next/router";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import Button from "@/components/atoms/Button";
 import Icon from "@/components/atoms/Icon";
 import { AnimatePresence, motion } from "framer-motion";
-import { NavigationOption } from "@/types";
+import { NavigationOption } from "../../types";
 
 interface MobileHeaderProps {
   options: NavigationOption[];
@@ -13,15 +13,29 @@ export default function MobileHeader({
   onToggleMenu,
   options,
 }: MobileHeaderProps) {
-  // Todo: move navigator logic to global utility helper fns
-  const router = useRouter();
   const [showMenu, setShowMenu] = useState(false);
+  const [selectedOption, setSelectedOption] = useState("");
+  
+  const toggleMenu = () => setShowMenu((visible) => !visible);
+  const handleClickOption = (option: string) => {
+    setSelectedOption(option);
+    toggleMenu();
+  };
+  const optionsHandler = useMemo(()=> {
+    const handler = {}
 
-  const name = "Olawale";
+    options.forEach(option => {
+      handler[option.title] = option.onClick
+    })
+
+    return handler
+  }, [options])
 
   useEffect(() => {
-    onToggleMenu?.(showMenu);
-  }, [onToggleMenu, showMenu]);
+    if (!showMenu && selectedOption) {
+      setTimeout(() => optionsHandler[selectedOption]?.(), 250);
+    }
+  }, [selectedOption, showMenu, optionsHandler]);
 
   return (
     <div className="h-[54px]">
@@ -31,8 +45,8 @@ export default function MobileHeader({
             <Icon name="logo" size={24} />
 
             <Button
-              className="bg-transparent hover:bg-transparent active:bg-transparent overflow-hidden"
-              onClick={() => setShowMenu((visible) => !visible)}
+              className="!bg-transparent"
+              onClick={toggleMenu}
               type="secondary"
             >
               <AnimatePresence mode="wait">
@@ -77,7 +91,7 @@ export default function MobileHeader({
               <div className="flex flex-col px-8 py-2 my-auto">
                 {options.map((option, index) => (
                   <div
-                    key={option}
+                    key={option.title}
                     className={`flex justify-center py-4 ${
                       index !== options.length - 1
                         ? "border-b border-white/[0.4]"
@@ -86,10 +100,10 @@ export default function MobileHeader({
                   >
                     <Button
                       className="text-[20px] px-6 py-3 text-white"
-                      onClick={() => {}}
+                      onClick={()=>handleClickOption(option.title)}
                       type="primary"
                     >
-                      {option}
+                      {option.title}
                     </Button>
                   </div>
                 ))}

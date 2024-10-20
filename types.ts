@@ -1,1 +1,4 @@
-export type NavigationOption = string;
+export interface Social {
+  label: string;
+  url: string;
+}

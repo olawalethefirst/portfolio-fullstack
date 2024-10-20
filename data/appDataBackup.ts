@@ -1,4 +1,4 @@
-const appDataBackup = {
+export const appDataBackup = {
   projects: [
     {
       title: "Konga Now",
@@ -185,7 +185,8 @@ const appDataBackup = {
   ],
   about:
     "I am a dedicated Software Engineer, with 4 years of experience in crafting innovative web and mobile solutions. I'm passionate about turning ideas into reality, paying close attention to every detail to ensure exceptional user experiences. I focus on delivering high-quality digital solutions, from initial development to deployment and ongoing management, I'm committed to a consistent quality that exceed expectations. Let's work together to bring your vision to life!",
-  publications: [
+  
+    publications: [
     {
       url: "https://github.com/olawalethefirst/mnemonicTranslator",
       title: "Mnemonic Translator",
@@ -217,6 +218,7 @@ const appDataBackup = {
         "This project explores the capabilities of AI by showcasing an application that detects faces in any selected image. Users can authenticate their identity and upload images, which are then processed through an AI-based model to identify and highlight the faces detected. The platform demonstrates how AI can be leveraged for facial recognition, offering a streamlined user experience for secure image submission and analysis.",
     },
   ],
+
   hero: {
     details: [
       " I'm passionate about",
@@ -226,7 +228,30 @@ const appDataBackup = {
     ],
     title: "Hi, I'm Olawale.",
   },
+
+  resume:
+    "https://docs.google.com/document/d/1OWHWZP6-8l4kC8YEQDcNNznK-oeWOxcHYai0LZl4h0E/edit?usp=drive_link",
+
+  email: "qbashy@gmail.com",
+
+  socials: [
+    {
+      url: "https://www.linkedin.com/in/olawalethefirst/",
+      label: "LinkedIn",
+    },
+    {
+      url: "https://github.com/olawalethefirst",
+      label: "Github",
+    },
+    {
+      url: "https://twitter.com/olawalethefirst",
+      label: "Twitter",
+    },
+    {
+      label: "Email",
+      url: "mailto:qbashy@gmail.com",
+    },
+  ],
 };
 
-export default appDataBackup
 export type AppData = typeof appDataBackup;

@@ -1,9 +1,11 @@
 import React from "react";
 import Socials from "@/components/Socials";
-import Link from "next/link";
-import Button from "@/components/atoms/Button";
+import { Social } from "@/types";
 
-const Footer = ({}) => {
+interface FooterProps {
+  socials: Social[];
+}
+const Footer = ({ socials }: FooterProps) => {
   return (
     <>
       <div className="mb-6">
@@ -14,7 +16,7 @@ const Footer = ({}) => {
             </h1>
 
             <div className="mt-4 ">
-              <Socials />
+              <Socials socials={socials} />
             </div>
           </div>
         </div>

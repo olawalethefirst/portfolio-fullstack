@@ -9,7 +9,7 @@ interface PublicationProps {
 export default function Publications({ publications }: PublicationProps) {
   return (
     <div className="laptop:mt-30 p-2 laptop:p-0">
-      <SectionHead title="Creative Endeavors" />
+      <SectionHead title="Ventures" />
 
       <div className="mt-5 tablet:ml-10 grid grid-cols-1 laptop:grid-cols-2 gap-6">
         {publications.map((publication, index) => (

@@ -8,7 +8,11 @@ export interface PublicationCardProps {
   url: string;
 }
 
-export default function PublicationCard({ title, description, url }: PublicationCardProps) {
+export default function PublicationCard({
+  title,
+  description,
+  url,
+}: PublicationCardProps) {
   const bannerControl = useAnimation();
 
   const showBanner = useCallback(() => {
@@ -23,7 +27,7 @@ export default function PublicationCard({ title, description, url }: Publication
   }, [bannerControl]);
 
   return (
-    <a href={url}>
+    <a href={url} target="_blank" rel="noreferrer">
       <motion.div
         animate={{ scale: 1 }}
         whileHover={{ scale: 1.02 }}

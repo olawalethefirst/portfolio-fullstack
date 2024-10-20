@@ -7,45 +7,114 @@ import Publications from "@/components/Sections/Publications/Publications";
 import About from "@/components/Sections/About/About";
 import Section from "@/components/atoms/Section/Section";
 import { getAppData } from "@/services/firestore";
-import { NextPageContext } from "next";
-import { AppData } from "@/data/appDataBackup";
+import { AppData, appDataBackup } from "@/data/appDataBackup";
+import { useMemo, useRef } from "react";
+import { downloadURI } from "@/lib/utils";
 
-Page.getInitialProps = async (ctx: NextPageContext) => {
-  const appData = await getAppData();
+Page.getInitialProps = async () => {
+  let appData: AppData;
+
+  try {
+    appData = await getAppData();
+  } catch {
+    console.error("Loading remote data failed, falling to local backup");
+    appData = appDataBackup;
+  }
 
   return appData;
 };
 
-export default function Page({ hero, projects, publications, about }: AppData) {
+export default function Page({
+  hero,
+  projects,
+  publications,
+  about,
+  resume,
+  email,
+  socials,
+}: AppData) {
+  const projectsRef = useRef<HTMLElement>();
+  const venturesRef = useRef<HTMLElement>();
+  const aboutRef = useRef<HTMLElement>();
+
+  const scrollIntoSection = (section: "Projects" | "Ventures" | "About") => {
+    switch (section) {
+      case "About":
+        return aboutRef.current?.scrollIntoView({
+          behavior: "smooth",
+        });
+      case "Projects":
+        return projectsRef.current?.scrollIntoView({
+          behavior: "smooth",
+        });
+      case "Ventures":
+        return venturesRef.current?.scrollIntoView({
+          behavior: "smooth",
+        });
+      default:
+        return;
+    }
+  };
+
+  const navigationOptions = useMemo(() => {
+    const navTitles = [
+      "Projects",
+      "Ventures",
+      "About",
+      "Resume",
+      "Contact",
+    ] as const;
+
+    return navTitles.map((title) => {
+      switch (title) {
+        case "Contact":
+          return {
+            title,
+            onClick: () => downloadURI(`mailto:${email}`),
+          };
+        case "Resume":
+          return {
+            title,
+            onClick: () => downloadURI(resume),
+          };
+        default:
+          return {
+            title,
+            onClick: () => scrollIntoSection(title),
+          };
+      }
+    });
+  }, [resume, email]);
+
   return (
     <div
       className={`page-wrapper-small !pt-[20px] tablet:page-wrapper bg-black bg-image relative`}
     >
       <div className="container mx-auto">
-        <Header />
+        <Header navigationOptions={navigationOptions} />
 
-        <Intro {...hero} />
+        <Intro socials={socials} {...hero} />
 
-        <Section>
+        <Section ref={projectsRef}>
           <Projects projects={projects} />
         </Section>
 
-        <Spacer size={160} />
+        <Spacer size={100} />
 
-        <Section>
+        <Section ref={venturesRef}>
           <Publications publications={publications} />
         </Section>
 
-        <Spacer size={160} />
+        <Spacer size={100} />
 
-        <Section>
+        <Section ref={aboutRef}>
           <About data={about} />
         </Section>
 
-        <Spacer size={160} />
+        <Spacer size={100} />
 
         <Section>
-          <Footer />
+          <Footer socials={socials} />
         </Section>
       </div>
     </div>

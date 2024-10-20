@@ -2,11 +2,15 @@ import { useRouter } from "next/router";
 import Button from "@/components/atoms/Button";
 import { MobileHeader } from "./components/MobileHeader";
 import Icon from "@/components/atoms/Icon";
+import { NavigationOption } from "./types";
 
-const Header = () => {
+interface HeaderProps {
+  navigationOptions: NavigationOption[];
+}
+const Header = ({ navigationOptions }: HeaderProps) => {
   return (
     <>
-      <MobileHeader options={["Work", "About", "Blog", "Resume", "Contact"]} />
+      <MobileHeader options={navigationOptions} />
 
       <div
         className={`
@@ -18,37 +22,17 @@ const Header = () => {
       >
         <Icon name="logo" size={24} />
 
-        <div className="flex">
-          <Button
-            className="laptop:my-1 p-1 laptop:p-1"
-            onClick={() => {}}
-            type="secondary"
-          >
-            Work
-          </Button>
-          <Button
-            className="laptop:my-1 p-1 laptop:p-1"
-            onClick={() => {}}
-            type="secondary"
-          >
-            About
-          </Button>
-
-          <Button
-            onClick={() => {}}
-            className="laptop:my-1 p-1 laptop:p-1"
-            type="secondary"
-          >
-            Resume
-          </Button>
-
-          <Button
-            className="laptop:my-1 p-1 laptop:p-1"
-            onClick={() => window.open("mailto:hello@chetanverma.com")}
-            type="secondary"
-          >
-            Contact
-          </Button>
+        <div className="flex gap-1">
+          {navigationOptions.map((option) => (
+            <Button
+              className="laptop:my-1 p-1 laptop:p-1"
+              onClick={option.onClick}
+              type="secondary"
+              key={option.title}
+            >
+              {option.title}
+            </Button>
+          ))}
         </div>
       </div>
     </>

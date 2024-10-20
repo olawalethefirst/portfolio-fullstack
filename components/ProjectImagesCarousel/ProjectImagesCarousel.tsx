@@ -13,7 +13,6 @@ export default function ProjectImagesCarousel({
 }: {
   imagesUrl: string[];
 }) {
-  console.log({ imagesUrl });
   return (
     <Carousel className="w-full flex gap-4 items-center">
       <CarouselPrevious className="static flex-none" />

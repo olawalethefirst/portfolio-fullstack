@@ -1,6 +1,5 @@
 import React, { PropsWithChildren } from "react";
 
-
 const Button = ({
   children,
   type = "primary",
@@ -25,11 +24,12 @@ const Button = ({
         py-1 tablet:py-1.5 laptop:py-2 px-2 tablet:px-3 laptop:px-4
         rounded-3xl
         transition-all ease-out duration-300 
-        ${`${
+        ${
           type === "primary"
-            ? "text-secondary hover:bg-primaryCompliment active:bg-primaryCompliment"
-            : "text-primary hover:bg-secondaryCompliment active:secondaryCompliment"
-        }`}
+            ? "text-secondary hover:text-primary hover:bg-secondary active:bg-secondary"
+            : "text-primary hover:text-secondary hover:bg-primary active:bg-primary"
+        }
+        outline-none
         ${className}`}
     >
       {children}
