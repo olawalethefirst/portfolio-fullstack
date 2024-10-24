@@ -28,7 +28,7 @@ export default function ProjectImagesCarousel({
                     src={imageUrl}
                     layout="fill"
                     className="object-cover scale-95 hover:scale-100 active:scale-95 cursor-pointer transition-all ease-out duration-300"
-                    priority={false}
+                    priority={true}
                   />
                 </CardContent>
               </Card>

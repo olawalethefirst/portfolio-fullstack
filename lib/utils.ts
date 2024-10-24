@@ -1,15 +1,16 @@
-import { clsx, type ClassValue } from "clsx"
-import { twMerge } from "tailwind-merge"
+import { clsx, type ClassValue } from "clsx";
+import { twMerge } from "tailwind-merge";
 
 export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs))
+  return twMerge(clsx(inputs));
 }
 
 export function downloadURI(uri: string, name?: string) {
   var link = document.createElement("a");
   link.download = name || "download";
   link.target = "_blank";
+  link.rel = "noreferrer";
   link.href = uri;
   link.click();
   link.remove();
-};
+}

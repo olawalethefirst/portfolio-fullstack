@@ -1,18 +1,20 @@
-import React, { useCallback, lazy, Suspense } from "react";
+import React, { lazy, Suspense, useMemo } from "react";
 import { IconSVGProps } from "./type";
-
-const createIcon = (iconPathName: string) =>
-  lazy(() => import(`./stock/${iconPathName}`));
 
 export default function Icon({
   name,
-  ...other
+  ...otherProps
 }: { name: string } & IconSVGProps) {
-  const Icon = createIcon(name);
+  try {
+    const Icon = require(`./stock/${name}`).default;
 
-  return (
-    <Suspense>
-      <Icon {...other} />
-    </Suspense>
-  );
+    if (Icon) {
+      return <Icon {...otherProps} />;
+    }
+  } catch {
+    console.error(`Icon: ${name} not found`);
+
+  }
+
+  return null;
 }

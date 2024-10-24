@@ -4,8 +4,8 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 export interface Tag {
-    imageUrl: string;
-    url: string;
+  imageUrl: string;
+  url: string;
 }
 export interface ProjectCardProps {
   images: string[];
@@ -34,21 +34,27 @@ const ProjectCard = ({
 
         <div className="flex justify-center gap-4 mt-4 cursor-pointer">
           {tags.map((tag) => (
-            <motion.div
+            <a
               key={tag.imageUrl}
-              className="relative w-[35px] h-[35px] laptop:w-[45px] laptop:h-[45px] "
-              animate={{
-                scale: 1,
-              }}
-              whileHover={{
-                scale: 1.1,
-              }}
-              whileTap={{
-                scale: 1.1,
-              }}
+              href={tag.url}
+              target="_blank"
+              rel="noreferrer"
             >
-              <Image alt="framework logo" src={tag.imageUrl} layout="fill" />
-            </motion.div>
+              <motion.div
+                className="relative w-[35px] h-[35px] laptop:w-[45px] laptop:h-[45px] "
+                animate={{
+                  scale: 1,
+                }}
+                whileHover={{
+                  scale: 1.1,
+                }}
+                whileTap={{
+                  scale: 1.1,
+                }}
+              >
+                <Image alt="framework logo" src={tag.imageUrl} layout="fill" />
+              </motion.div>
+            </a>
           ))}
         </div>
       </div>
