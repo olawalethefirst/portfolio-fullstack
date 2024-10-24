@@ -52,7 +52,11 @@ const ProjectCard = ({
                   scale: 1.1,
                 }}
               >
-                <Image alt="framework logo" src={tag.imageUrl} layout="fill" />
+                <Image
+                  alt="framework logo"
+                  src={tag.imageUrl}
+                  layout="fill"
+                />
               </motion.div>
             </a>
           ))}
