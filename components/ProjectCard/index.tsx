@@ -1,6 +1,6 @@
 import React from "react";
 import ProjectImagesCarousel from "@/components/ProjectImagesCarousel/ProjectImagesCarousel";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { motion } from "framer-motion";
 
 export interface Tag {
@@ -33,9 +33,9 @@ const ProjectCard = ({
         </p>
 
         <div className="flex justify-center gap-4 mt-4 cursor-pointer">
-          {tags.map((tag) => (
+          {tags.map((tag, i) => (
             <a
-              key={tag.imageUrl}
+              key={tag.imageUrl + i}
               href={tag.url}
               target="_blank"
               rel="noreferrer"
@@ -52,11 +52,7 @@ const ProjectCard = ({
                   scale: 1.1,
                 }}
               >
-                <Image
-                  alt="framework logo"
-                  src={tag.imageUrl}
-                  layout="fill"
-                />
+                <Image alt="framework logo" src={tag.imageUrl} layout="fill" />
               </motion.div>
             </a>
           ))}
